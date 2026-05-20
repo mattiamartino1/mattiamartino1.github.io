@@ -1,0 +1,167 @@
+
+.project-card h3 {
+  margin-top: 8px;
+}
+
+.project-card p,
+.skill-panel p,
+.contact-section p {
+  color: var(--muted);
+}
+
+.project-card a {
+  display: inline-flex;
+  margin-top: 12px;
+  color: var(--accent-dark);
+  font-weight: 800;
+}
+
+.skills-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.skill-panel {
+  padding: 28px;
+}
+
+.contact-section {
+  padding: 96px 0;
+  background: #e8edf2;
+}
+
+.contact-grid {
+  grid-template-columns: 1fr 0.8fr;
+  align-items: start;
+}
+
+.contact-panel {
+  display: grid;
+  gap: 10px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.contact-panel > a {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 20px;
+  font-weight: 750;
+}
+
+.social-row {
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.social-row a {
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(17, 17, 20, 0.07);
+  font-weight: 700;
+}
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 28px clamp(18px, 4vw, 54px);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 940px) {
+  .site-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+
+  .hero,
+  .profile-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 52px;
+  }
+
+  .metrics,
+  .project-grid,
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 620px) {
+  .section-shell {
+    width: min(100% - 28px, var(--max));
+  }
+
+  .brand span:last-child,
+  .header-cta {
+    display: none;
+  }
+
+  h1 {
+    font-size: clamp(42px, 14vw, 58px);
+  }
+
+  h2 {
+    font-size: clamp(32px, 10vw, 44px);
+  }
+
+  .hero-media,
+  .hero-media img {
+    min-height: 0;
+    height: 440px;
+  }
+
+  .availability-card {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    max-width: none;
+  }
+
+  .contact-panel > a {
+    font-size: 17px;
+  }
+}
