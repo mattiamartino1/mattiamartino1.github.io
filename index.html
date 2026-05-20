@@ -1,730 +1,281 @@
 <!doctype html>
 <html lang="it">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mattia Martino — Sales, Hospitality & Progetti tra IT e USA</title>
-  <meta name="description" content="Mattia Martino — esperienza internazionale in sales, hospitality e business development. Progetti: AMERICANDO, PLIN TO GO." />
-  <meta name="author" content="Mattia Martino" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Mattia Martino" />
-  <meta property="og:description" content="Esperienza internazionale in sales, hospitality e business development. Progetti tra Italia e Stati Uniti." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.mattiamartino.it/" />
-  <meta property="og:image" content="https://www.mattiamartino.it/images/mattia.png" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- SEO JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Mattia Martino",
-    "url": "https://www.mattiamartino.it/",
-    "image": "https://www.mattiamartino.it/images/mattia.png",
-    "homeLocation": [
-      {"@type":"Place","name":"Cortemilia (IT)"},
-      {"@type":"Place","name":"San Francisco (USA)"}
-    ],
-    "email": "mailto:mattia@mattiamartino.it",
-    "telephone": ["+393462135436", "+17079971703"],
-    "sameAs": [
-      "https://www.linkedin.com/in/mattia-martino-194a9613b",
-      "https://www.instagram.com/mattiamartino_official/"
-    ]
-  }
-  </script>
-
-  <style>
-    :root{
-      --bg:#0b0f17;
-      --panel:rgba(255,255,255,.06);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.68);
-      --line:rgba(255,255,255,.12);
-      --accent:#7c5cff;
-      --accent2:#35d4ff;
-      --shadow:0 14px 50px rgba(0,0,0,.35);
-      --radius:18px;
-      --radius2:26px;
-      --max:1120px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:radial-gradient(900px 700px at 20% -10%, rgba(124,92,255,.25), transparent 60%),
-                 radial-gradient(800px 600px at 90% 10%, rgba(53,212,255,.18), transparent 55%),
-                 var(--bg);
-      color:var(--text);
-      line-height:1.55;
-    }
-    a{color:inherit;text-decoration:none}
-    a:hover{text-decoration:underline}
-    .container{width:min(var(--max), calc(100% - 40px));margin:0 auto}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
-
-    .skip-link{
-      position:absolute;left:-999px;top:10px;
-      background:#fff;color:#000;padding:10px 12px;border-radius:10px
-    }
-    .skip-link:focus{left:14px;z-index:1000}
-
-    /* Header */
-    .header{
-      position:sticky;top:0;z-index:50;
-      backdrop-filter:blur(12px);
-      background:rgba(11,15,23,.6);
-      border-bottom:1px solid var(--line);
-    }
-    .header__inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:14px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
-    .brand__dot{
-      width:12px;height:12px;border-radius:999px;
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
-      box-shadow:0 0 0 6px rgba(124,92,255,.15)
-    }
-    .brand__text{letter-spacing:.2px}
-
-    .nav{display:flex;align-items:center;gap:10px}
-    .nav__toggle{
-      display:none;width:44px;height:44px;border:1px solid var(--line);
-      border-radius:14px;background:transparent;color:var(--text);cursor:pointer
-    }
-    .nav__toggleLine{display:block;width:18px;height:2px;background:var(--text);margin:4px auto;border-radius:2px}
-    .nav__menu{display:flex;list-style:none;margin:0;padding:0;gap:18px}
-    .nav__menu a{color:var(--muted);font-weight:600;font-size:14px}
-    .nav__menu a:hover{color:var(--text);text-decoration:none}
-
-    /* Buttons */
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:12px 16px;border-radius:14px;border:1px solid var(--line);
-      background:transparent;color:var(--text);font-weight:700;font-size:14px;
-      cursor:pointer;transition:transform .12s ease, background .12s ease, border-color .12s ease
-    }
-    .btn:hover{transform:translateY(-1px);text-decoration:none}
-    .btn--primary{border:0;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#071018}
-    .btn--ghost{background:rgba(255,255,255,.04)}
-    .header__cta{white-space:nowrap}
-
-    /* Hero */
-    .hero{padding:54px 0 34px}
-    .hero__grid{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:start}
-    .eyebrow{
-      color:var(--muted);font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-      font-size:12px;margin:0 0 10px
-    }
-    .hero h1{margin:0 0 12px;font-size:clamp(30px,4vw,46px);line-height:1.1}
-    .lead{margin:0 0 18px;color:rgba(255,255,255,.82);font-size:16px}
-    .hero__actions{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0 18px}
-    .hero__meta{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px}
-    .hero__meta li{
-      display:flex;gap:10px;align-items:baseline;padding:10px 12px;border:1px solid var(--line);
-      border-radius:14px;background:rgba(255,255,255,.03)
-    }
-    .meta__label{
-      width:92px;color:var(--muted);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.08em
-    }
-    .hero__card{display:grid;gap:14px}
-    .photo{
-      border-radius:var(--radius2);overflow:hidden;border:1px solid var(--line);
-      background:rgba(255,255,255,.03);box-shadow:var(--shadow)
-    }
-    .photo img{width:100%;height:auto;display:block}
-    .card{
-      border:1px solid var(--line);border-radius:var(--radius);
-      background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));
-      padding:16px;box-shadow:var(--shadow)
-    }
-    .card__title{margin:0 0 6px;font-weight:800}
-    .card__text{margin:0;color:var(--muted)}
-    .small{font-size:13px}
-    .muted{color:var(--muted)}
-    .pill{
-      display:inline-block;padding:6px 10px;border:1px solid var(--line);
-      border-radius:999px;background:rgba(255,255,255,.04);margin-right:6px
-    }
-
-    /* Social */
-    .social{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:14px;
-    }
-    .social a{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 12px;
-      border:1px solid var(--line);
-      border-radius:14px;
-      background:rgba(255,255,255,.03);
-      color:var(--muted);
-      font-weight:800;
-      font-size:13px;
-      text-decoration:none;
-    }
-    .social a:hover{
-      color:var(--text);
-      background:rgba(255,255,255,.05);
-      text-decoration:none;
-    }
-    .dot{
-      width:8px;height:8px;border-radius:999px;
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
-      box-shadow:0 0 0 5px rgba(124,92,255,.12);
-      flex:0 0 auto;
-    }
-
-    /* Sections */
-    .section{padding:54px 0}
-    .section--alt{background:rgba(255,255,255,.02);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .section__head{margin-bottom:18px}
-    .section__head h2{margin:0 0 8px;font-size:28px}
-    .section__sub{margin:0;color:var(--muted)}
-
-    /* Timeline */
-    .timeline{display:grid;gap:14px;margin-top:20px}
-    .timeline__item{
-      display:grid;grid-template-columns:170px 1fr;gap:16px;padding:16px;
-      border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.03)
-    }
-    .timeline__when{color:var(--muted);font-weight:800;font-size:13px;letter-spacing:.02em}
-    .timeline__body h3{margin:0 0 4px}
-    .timeline__place{margin:0 0 10px;color:var(--muted);font-weight:700}
-    .timeline__body ul{margin:0;padding-left:18px;color:rgba(255,255,255,.84)}
-    .timeline__body li{margin:6px 0}
-
-    /* Project cards */
-    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}
-    .proj{
-      border:1px solid var(--line);border-radius:var(--radius);padding:18px;
-      background:rgba(255,255,255,.03);box-shadow:var(--shadow)
-    }
-    .proj__top{display:flex;gap:12px;align-items:center;margin-bottom:10px}
-    .proj__logo{
-      width:44px;height:44px;border-radius:12px;border:1px solid var(--line);
-      background:rgba(255,255,255,.04);object-fit:contain;padding:6px
-    }
-    .proj h3{margin:0}
-    .kpi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
-    .kpi__item{border:1px solid var(--line);border-radius:14px;padding:10px 12px;background:rgba(255,255,255,.03)}
-    .kpi__label{display:block;color:var(--muted);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.08em}
-    .kpi__value{font-weight:800}
-    .bullets{margin:10px 0 0;padding-left:18px}
-    .bullets li{margin:6px 0;color:rgba(255,255,255,.84)}
-    .proj__actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-
-    /* Skills grid */
-    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}
-
-    /* Contact */
-    .contact{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;align-items:start}
-    .contact__cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:16px 0}
-    .mini{border:1px solid var(--line);border-radius:14px;padding:12px;background:rgba(255,255,255,.03)}
-    .mini__label{color:var(--muted);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.08em}
-    .mini__value{margin-top:6px;font-weight:800}
-    .contact__actions{display:flex;gap:10px;flex-wrap:wrap}
-
-    /* Footer */
-    .footer{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-
-    /* Responsive */
-    @media (max-width:940px){
-      .hero__grid{grid-template-columns:1fr}
-      .cards{grid-template-columns:1fr}
-      .grid2{grid-template-columns:1fr}
-      .contact{grid-template-columns:1fr}
-      .timeline__item{grid-template-columns:1fr}
-      .meta__label{width:80px}
-      .header__cta{display:none}
-      .nav__toggle{display:inline-flex}
-      .nav__menu{
-        display:none;position:absolute;right:20px;top:66px;flex-direction:column;
-        background:rgba(11,15,23,.92);border:1px solid var(--line);border-radius:16px;
-        padding:10px;min-width:220px;box-shadow:var(--shadow)
-      }
-      .nav__menu.is-open{display:flex}
-      .nav__menu a{padding:10px 10px;border-radius:12px}
-      .nav__menu a:hover{background:rgba(255,255,255,.05)}
-    }
-  </style>
-</head>
-
-<body>
-  <a class="skip-link" href="#contenuto">Vai al contenuto</a>
-
-  <header class="header">
-    <div class="container header__inner">
-      <a class="brand" href="#top" aria-label="Homepage Mattia Martino">
-        <span class="brand__dot" aria-hidden="true"></span>
-        <span class="brand__text">Mattia Martino</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mattia Martino - sales, hospitality and business development between Italy and the United States."
+    />
+    <title>Mattia Martino | Sales, Hospitality & Business Development</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Mattia Martino homepage">
+        <span class="brand-mark">MM</span>
+        <span>Mattia Martino</span>
       </a>
 
-      <nav class="nav" aria-label="Navigazione principale">
-        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
-          <span class="nav__toggleLine" aria-hidden="true"></span>
-          <span class="nav__toggleLine" aria-hidden="true"></span>
-          <span class="nav__toggleLine" aria-hidden="true"></span>
-          <span class="sr-only">Apri menu</span>
-        </button>
-
-        <ul class="nav__menu" id="navMenu">
-          <li><a href="#bio">Bio</a></li>
-          <li><a href="#esperienze">Esperienze</a></li>
-          <li><a href="#progetti">Progetti</a></li>
-          <li><a href="#competenze">Competenze</a></li>
-          <li><a href="#contatti">Contatti</a></li>
-        </ul>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#profile" data-i18n="nav_profile">Profilo</a>
+        <a href="#experience" data-i18n="nav_experience">Esperienze</a>
+        <a href="#projects" data-i18n="nav_projects">Progetti</a>
+        <a href="#contact" data-i18n="nav_contact">Contatti</a>
       </nav>
 
-      <a class="btn btn--primary header__cta"
-         href="mailto:mattia@mattiamartino.it?subject=Contatto%20dal%20sito%20mattiamartino.it&body=Ciao%20Mattia%2C%0A%0A">
-        Contatta
-      </a>
-    </div>
-  </header>
+      <div class="header-actions">
+        <button class="language-toggle" type="button" aria-label="Switch language">
+          <span data-lang-option="it">IT</span>
+          <span data-lang-option="en">EN</span>
+        </button>
+        <a class="header-cta" href="mailto:mattia@mattiamartino.it" data-i18n="header_cta">Contatta</a>
+      </div>
+    </header>
 
-  <main id="contenuto">
-    <!-- HERO -->
-    <section class="hero" id="top">
-      <div class="container hero__grid">
-        <div class="hero__copy" id="bio">
-          <p class="eyebrow">Cortemilia (IT) — San Francisco (USA)</p>
-          <h1>Sales, hospitality e progetti tra Italia e Stati Uniti.</h1>
-
-          <p class="lead">
-            Sono <strong>Mattia Martino</strong>: esperienza internazionale in <strong>sales management</strong>,
-            <strong>ospitalità</strong> e <strong>business development</strong> tra USA, Europa e Africa.
-            Lavoro su crescita commerciale, partnership e posizionamento di brand premium—con un approccio pratico e orientato al risultato.
+    <main id="top">
+      <section class="hero section-shell">
+        <div class="hero-copy reveal">
+          <p class="eyebrow" data-i18n="hero_location">Cortemilia (IT) - San Francisco (USA)</p>
+          <h1 data-i18n="hero_title">Sales, hospitality e progetti tra Italia e Stati Uniti.</h1>
+          <p class="hero-text" data-i18n="hero_text">
+            Esperienza internazionale in sales management, ospitalita e business development tra USA, Europa e Africa.
+            Lavoro su crescita commerciale, partnership e posizionamento di brand premium con un approccio pratico e
+            orientato al risultato.
           </p>
 
-          <div class="hero__actions">
-            <a class="btn btn--primary"
-               href="mailto:mattia@mattiamartino.it?subject=Contatto%20dal%20sito%20mattiamartino.it&body=Ciao%20Mattia%2C%0A%0A">
-              Contattami via email
-            </a>
-            <a class="btn btn--ghost" href="images/CV_Mattia_Martino.pdf" target="_blank" rel="noopener">
-              Scarica CV
-            </a>
+          <div class="hero-actions">
+            <a class="primary-button" href="mailto:mattia@mattiamartino.it" data-i18n="hero_email">Contattami via email</a>
+            <a class="secondary-button" href="images/CV_Mattia_Martino.pdf" data-i18n="hero_cv">Scarica CV</a>
           </div>
 
-          <div class="social" aria-label="Link social">
-            <a href="https://www.linkedin.com/in/mattia-martino-194a9613b" target="_blank" rel="noopener">
-              <span class="dot" aria-hidden="true"></span> LinkedIn
-            </a>
-            <a href="https://www.instagram.com/mattiamartino_official/" target="_blank" rel="noopener">
-              <span class="dot" aria-hidden="true"></span> Instagram
-            </a>
-          </div>
-
-          <ul class="hero__meta">
-            <li>
-              <span class="meta__label">Email</span>
-              <a href="mailto:mattia@mattiamartino.it">mattia@mattiamartino.it</a>
-            </li>
-            <li>
-              <span class="meta__label">Telefono IT</span>
-              <a href="tel:+393462135436">+39 346 213 5436</a>
-            </li>
-            <li>
-              <span class="meta__label">Telefono USA</span>
-              <a href="tel:+17079971703">+1 707 997 1703</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="hero__card" aria-label="Foto profilo">
-          <div class="photo">
-            <img src="images/mattia.png" alt="Foto di Mattia Martino" loading="eager" />
-          </div>
-          <div class="card">
-            <p class="card__title">Disponibilità</p>
-            <p class="card__text">Collaborazioni, consulenze e nuovi progetti.</p>
-            <p class="card__text small">
-              <span class="pill">Sales</span>
-              <span class="pill">Hospitality</span>
-              <span class="pill">Business Dev</span>
-            </p>
+          <div class="hero-meta" aria-label="Contact details">
+            <span>mattia@mattiamartino.it</span>
+            <span>+39 346 213 5436</span>
+            <span>+1 707 997 1703</span>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ESPERIENZE -->
-    <section class="section" id="esperienze">
-      <div class="container">
-        <div class="section__head">
-          <h2>Esperienze</h2>
-          <p class="section__sub">Ruoli e risultati principali (USA / Europa / Africa).</p>
+        <div class="hero-media reveal">
+          <img src="images/mattia.png" alt="Foto di Mattia Martino" />
+          <div class="availability-card">
+            <span data-i18n="availability_label">Disponibilita</span>
+            <strong data-i18n="availability_text">Collaborazioni, consulenze e nuovi progetti.</strong>
+          </div>
+        </div>
+      </section>
+
+      <section id="profile" class="profile-band reveal">
+        <div class="section-shell profile-grid">
+          <div>
+            <p class="eyebrow" data-i18n="profile_eyebrow">Executive profile</p>
+            <h2 data-i18n="profile_title">Un profilo commerciale con mentalita operativa.</h2>
+          </div>
+          <p data-i18n="profile_text">
+            Porto valore quando un progetto deve crescere: trovare clienti, costruire fiducia, negoziare bene,
+            coordinare operazioni e trasformare un posizionamento premium in risultati misurabili.
+          </p>
+        </div>
+      </section>
+
+      <section class="section-shell metrics reveal" aria-label="Key strengths">
+        <div class="metric">
+          <span data-i18n="metric_one_value">USA / Europa / Africa</span>
+          <p data-i18n="metric_one_label">Esperienza internazionale</p>
+        </div>
+        <div class="metric">
+          <span data-i18n="metric_two_value">Multi-milioni</span>
+          <p data-i18n="metric_two_label">Crescita fatturato USA in 2 anni</p>
+        </div>
+        <div class="metric">
+          <span data-i18n="metric_three_value">500+ ospiti</span>
+          <p data-i18n="metric_three_label">Eventi luxury e corporate</p>
+        </div>
+      </section>
+
+      <section id="experience" class="section-shell content-section">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-i18n="experience_eyebrow">Esperienze</p>
+          <h2 data-i18n="experience_title">Ruoli e risultati principali.</h2>
         </div>
 
         <div class="timeline">
-          <article class="timeline__item">
-            <div class="timeline__when">Giu 2025 — Presente</div>
-            <div class="timeline__body">
-              <h3>Sales Executive — Service Engineer</h3>
-              <p class="timeline__place">Wine Country Closures (Battistella Closures)</p>
-              <ul>
-                <li>Sviluppo nuove opportunità, focus su produttori di spumanti e mercati domestici/internazionali.</li>
-                <li>Gestione end-to-end del ciclo di vendita: lead → consulenza tecnica → preventivi → negoziazione → post-vendita.</li>
-                <li>Supporto tecnico-commerciale: selezione chiusure, ottimizzazione applicazione, troubleshooting performance.</li>
-                <li>Iniziative marketing e comunicazione: contenuti sito, posizionamento prodotto, coordinamento con brand corporate.</li>
-                <li>Presenza a fiere ed eventi di settore per rafforzare visibilità e pipeline.</li>
-              </ul>
+          <article class="timeline-item reveal">
+            <time data-i18n="exp_1_date">Giu 2025 - Presente</time>
+            <div>
+              <h3 data-i18n="exp_1_title">Sales Executive - Service Engineer</h3>
+              <p class="company">Wine Country Closures (Battistella Closures)</p>
+              <p data-i18n="exp_1_text">
+                Sviluppo nuove opportunita, gestione end-to-end del ciclo di vendita, supporto tecnico-commerciale e
+                presenza a fiere di settore.
+              </p>
             </div>
           </article>
 
-          <article class="timeline__item">
-            <div class="timeline__when">Lug 2022 — Mag 2025</div>
-            <div class="timeline__body">
-              <h3>Vice President — Sales Manager</h3>
-              <p class="timeline__place">Intercap USA Inc. · Santa Rosa, CA</p>
-              <ul>
-                <li>Espansione USA: fatturato da quasi zero a <strong>multi-milioni</strong> in 2 anni.</li>
-                <li>Gestione completa sales cycle: prospecting, design progetto, quoting, delivery e post-vendita.</li>
-                <li>Collaborazione con accounting/legal per compliance e reporting.</li>
-                <li>Trade fairs ed esposizioni hospitality in Nord America (Canada/Messico inclusi).</li>
-                <li><strong>+40%</strong> YoY clienti di ritorno grazie a relationship management.</li>
-                <li>Gestione account strategici con importanti wine producers (es. Roederer Estate, Korbel, Kendall-Jackson, ecc.).</li>
-              </ul>
+          <article class="timeline-item reveal">
+            <time data-i18n="exp_2_date">Lug 2022 - Mag 2025</time>
+            <div>
+              <h3 data-i18n="exp_2_title">Vice President - Sales Manager</h3>
+              <p class="company">Intercap USA Inc. - Santa Rosa, CA</p>
+              <p data-i18n="exp_2_text">
+                Espansione USA da quasi zero a fatturato multi-milionario, gestione account strategici e crescita dei
+                clienti di ritorno del 40% YoY.
+              </p>
             </div>
           </article>
 
-          <article class="timeline__item">
-            <div class="timeline__when">Ott 2021 — Lug 2022</div>
-            <div class="timeline__body">
-              <h3>Purchasing Manager</h3>
-              <p class="timeline__place">Pistacchio S.p.A. · Farigliano, IT</p>
-              <ul>
-                <li>Procurement di frutta secca premium (contratti &gt; €2M/anno).</li>
-                <li>Negoziati per riduzione costi materie prime fino al <strong>10%</strong> mantenendo qualità.</li>
-                <li>Gestione fornitori in Italia, Turchia e California per continuità supply.</li>
-              </ul>
+          <article class="timeline-item reveal">
+            <time data-i18n="exp_3_date">2021 - 2022</time>
+            <div>
+              <h3 data-i18n="exp_3_title">Purchasing Manager</h3>
+              <p class="company">Pistacchio S.p.A. / La Gentile S.r.l.</p>
+              <p data-i18n="exp_3_text">
+                Procurement di materie prime premium, negoziazione fornitori tra Italia, Turchia e California e supporto
+                a sviluppo prodotto.
+              </p>
             </div>
           </article>
 
-          <article class="timeline__item">
-            <div class="timeline__when">Feb 2021 — Ott 2021</div>
-            <div class="timeline__body">
-              <h3>Purchasing Manager</h3>
-              <p class="timeline__place">La Gentile S.r.l. · Cortemilia, IT</p>
-              <ul>
-                <li>Analisi prezzi e acquisti per nocciola piemontese di alta qualità.</li>
-                <li>Supporto a R&amp;D per innovazione prodotto e sviluppo nuove linee.</li>
-                <li>Migliorata affidabilità consegne fornitori: <strong>+15%</strong>.</li>
-              </ul>
+          <article class="timeline-item reveal">
+            <time data-i18n="exp_4_date">2016 - 2021</time>
+            <div>
+              <h3 data-i18n="exp_4_title">Hospitality, Events & Project Consulting</h3>
+              <p class="company" data-i18n="exp_4_company">Italia / International</p>
+              <p data-i18n="exp_4_text">
+                Aperture ristorative, eventi istituzionali e luxury hospitality, incluso supporto a progetti
+                internazionali con Chef Carlo Zarri.
+              </p>
             </div>
           </article>
 
-          <article class="timeline__item">
-            <div class="timeline__when">Gen 2021 — Presente</div>
-            <div class="timeline__body">
-              <h3>Founder &amp; Project Manager</h3>
-              <p class="timeline__place">“A Hazelnut for All” Initiative</p>
-              <ul>
-                <li>Progetto agro-turistico sostenibile con la Confraternita della Nocciola Tonda e Gentile di Langa.</li>
-                <li>Modello “adozione nocciolo”: oltre <strong>100 sponsorship</strong> nel primo anno.</li>
-                <li>Promozione territorio con collaborazioni marketing ed eventi internazionali.</li>
-              </ul>
+          <article class="timeline-item reveal">
+            <time data-i18n="exp_5_date">Gen 2021 - Presente</time>
+            <div>
+              <h3 data-i18n="exp_5_title">Founder & Project Manager</h3>
+              <p class="company">"A Hazelnut for All" Initiative</p>
+              <p data-i18n="exp_5_text">
+                Progetto agro-turistico sostenibile con modello di adozione nocciolo, sponsorship e promozione del
+                territorio tramite marketing ed eventi internazionali.
+              </p>
             </div>
           </article>
 
-          <article class="timeline__item">
-            <div class="timeline__when">Nov 2020 — Gen 2021</div>
-            <div class="timeline__body">
-              <h3>Restaurant Opening Consultant</h3>
-              <p class="timeline__place">Addis Ababa, Etiopia</p>
-              <ul>
-                <li>Consulenza per apertura di 3 ristoranti: sourcing fornitori, layout cucina, procurement, recruiting, setup operativo.</li>
-                <li>Training FOH/BOH e implementazione workflow per posizionamento luxury.</li>
-                <li>Ottimizzazione budget ~<strong>15%</strong> via contratti e negoziazione fornitori.</li>
-              </ul>
+          <article class="timeline-item reveal">
+            <time data-i18n="exp_6_date">Nov 2020 - Gen 2021</time>
+            <div>
+              <h3 data-i18n="exp_6_title">Restaurant Opening Consultant</h3>
+              <p class="company">Addis Ababa, Etiopia</p>
+              <p data-i18n="exp_6_text">
+                Consulenza per apertura di tre ristoranti: sourcing fornitori, layout cucina, procurement, recruiting,
+                training e workflow per posizionamento luxury.
+              </p>
             </div>
           </article>
 
-          <article class="timeline__item">
-            <div class="timeline__when">Giu 2019 — Ott 2020</div>
-            <div class="timeline__body">
-              <h3>Hospitality &amp; Event Consultant</h3>
-              <p class="timeline__place">Italia / International</p>
-              <ul>
-                <li>Consulenze hospitality, ristorazione ed eventi per clienti privati e corporate.</li>
-                <li>Coordinamento team per eventi luxury fino a <strong>500+ ospiti</strong>.</li>
-                <li>Supporto a start-up ristorative: menu design, fornitori, setup operativo.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="timeline__item">
-            <div class="timeline__when">Mag 2019 — Giu 2019</div>
-            <div class="timeline__body">
-              <h3>Event Manager</h3>
-              <p class="timeline__place">Ambasciata Italiana · Addis Ababa, Etiopia</p>
-              <ul>
-                <li>Eventi istituzionali: Festa della Repubblica (~800 ospiti) e cena ufficiale (150 ospiti).</li>
-                <li>Gestione procurement, logistica, sicurezza e hospitality in protocollo diplomatico.</li>
-                <li>Riconoscimenti formali per l’organizzazione degli eventi.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="timeline__item">
-            <div class="timeline__when">2016 — 2019</div>
-            <div class="timeline__body">
-              <h3>Hospitality &amp; Events Coordinator</h3>
-              <p class="timeline__place">Collaborazioni con Chef Carlo Zarri (progetti internazionali)</p>
-              <ul>
-                <li>“Truffles and Hazelnuts Tour” in 10 stati USA: 20 cene promozionali italiane.</li>
-                <li>Supporto a grandi eventi e hospitality operations.</li>
-              </ul>
+          <article class="timeline-item reveal">
+            <time data-i18n="exp_7_date">Mag 2019 - Giu 2019</time>
+            <div>
+              <h3 data-i18n="exp_7_title">Event Manager</h3>
+              <p class="company">Ambasciata Italiana - Addis Ababa, Etiopia</p>
+              <p data-i18n="exp_7_text">
+                Organizzazione di eventi istituzionali, gestione procurement, logistica, sicurezza e hospitality in
+                protocollo diplomatico.
+              </p>
             </div>
           </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- PROGETTI -->
-    <section class="section section--alt" id="progetti">
-      <div class="container">
-        <div class="section__head">
-          <h2>Progetti in sviluppo</h2>
-          <p class="section__sub">Due iniziative a cui sto lavorando adesso (e spazio per crescere).</p>
-        </div>
+      <section id="projects" class="projects-section">
+        <div class="section-shell">
+          <div class="section-heading reveal">
+            <p class="eyebrow" data-i18n="projects_eyebrow">Progetti in sviluppo</p>
+            <h2 data-i18n="projects_title">Iniziative con potenziale scalabile.</h2>
+          </div>
 
-        <div class="cards">
-          <article class="proj">
-            <div class="proj__top">
-              <img class="proj__logo" src="images/americando.png" alt="Logo AMERICANDO" loading="lazy" />
+          <div class="project-grid">
+            <article class="project-card reveal">
+              <img src="images/americando.png" alt="Logo AMERICANDO" />
               <div>
+                <span class="project-type" data-i18n="americando_type">Podcast - Host & Founder</span>
                 <h3>AMERICANDO</h3>
-                <p class="muted">Podcast — Host &amp; Founder</p>
+                <p data-i18n="americando_text">
+                  Un podcast che racconta l'America agli italiani con un taglio pratico: visti, tax, contratti,
+                  storie imprenditoriali, studenti e giovani founder.
+                </p>
+                <a href="https://www.instagram.com/americando.podcast/" target="_blank" rel="noreferrer" data-i18n="project_instagram">
+                  Instagram
+                </a>
               </div>
-            </div>
+            </article>
 
-            <p>
-              Un podcast che racconta l’America agli italiani con un taglio <strong>pratico</strong> e <strong>vero</strong>.
-              L’obiettivo: aiutare chi sogna gli USA (o ci vive già) a capire come muoversi, senza fuffa.
-            </p>
-
-            <div class="kpi">
-              <div class="kpi__item"><span class="kpi__label">Formato</span><span class="kpi__value">3 pilastri</span></div>
-              <div class="kpi__item"><span class="kpi__label">Tono</span><span class="kpi__value">Concretezza</span></div>
-              <div class="kpi__item"><span class="kpi__label">Target</span><span class="kpi__value">Italia ⇄ USA</span></div>
-            </div>
-
-            <ul class="bullets">
-              <li><strong>Parte tecnica</strong>: con interventi di avvocato e commercialista (visti, tax, contratti, setup).</li>
-              <li><strong>Parte imprenditoriale</strong>: italiani che “ce l’hanno fatta” negli USA (storie, errori, svolte).</li>
-              <li><strong>Parte giovani</strong>: studenti italiani al college USA e giovani founder di startup.</li>
-              <li>Extra: “Checklist episodio” con risorse, link e takeaway operativi.</li>
-            </ul>
-
-            <div class="proj__actions">
-              <a class="btn btn--ghost" href="https://www.instagram.com/americando.podcast/" target="_blank" rel="noopener">
-                Instagram AMERICANDO
-              </a>
-              <a class="btn btn--primary"
-                 href="mailto:mattia@mattiamartino.it?subject=AMERICANDO%20-%20Idea%20o%20collaborazione&body=Ciao%20Mattia%2C%0A%0ATi%20scrivo%20per%20AMERICANDO...%0A">
-                Scrivimi
-              </a>
-            </div>
-          </article>
-
-          <article class="proj">
-            <div class="proj__top">
-              <img class="proj__logo" src="images/plintogo.png" alt="Logo PLIN TO GO" loading="lazy" />
+            <article class="project-card reveal">
+              <img src="images/plintogo.png" alt="Logo PLIN TO GO" />
               <div>
+                <span class="project-type" data-i18n="plin_type">Pasta bar a Miami - in apertura</span>
                 <h3>PLIN TO GO</h3>
-                <p class="muted">Pasta bar a Miami — in apertura</p>
+                <p data-i18n="plin_text">
+                  Format veloce, curato e scalabile: pochi piatti, ingredienti ottimi, servizio rapido, controllo food
+                  cost e attenzione alla customer experience.
+                </p>
+                <a href="#contact" data-i18n="project_partnership">Partnership</a>
               </div>
-            </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
-            <p>
-              Sto aprendo un <strong>pasta bar a Miami</strong> con un socio: un format veloce, curato e scalabile,
-              con l’obiettivo di portare una pasta experience italiana “pulita” e ripetibile.
-            </p>
+      <section class="section-shell content-section skills-section">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-i18n="skills_eyebrow">Competenze</p>
+          <h2 data-i18n="skills_title">Dove porto valore.</h2>
+        </div>
 
-            <ul class="bullets">
-              <li><strong>Concept</strong>: pochi piatti, ingredienti ottimi, servizio rapido, qualità costante.</li>
-              <li><strong>Brand</strong>: premium ma accessibile, attenzione al design e alla customer experience.</li>
-              <li><strong>Operazioni</strong>: supply chain semplice, procedure chiare, controllo food cost.</li>
-              <li><strong>Roadmap</strong>: apertura → ottimizzazione → possibile espansione in altre location.</li>
-            </ul>
-
-            <div class="proj__actions">
-              <a class="btn btn--ghost" href="#contatti">Partnership</a>
-              <a class="btn btn--primary"
-                 href="mailto:mattia@mattiamartino.it?subject=PLIN%20TO%20GO%20-%20Info%20e%20collaborazioni&body=Ciao%20Mattia%2C%0A%0AVorrei%20parlarti%20di%20PLIN%20TO%20GO...%0A">
-                Contattami
-              </a>
-            </div>
+        <div class="skills-grid">
+          <article class="skill-panel reveal">
+            <h3 data-i18n="skill_sales_title">Sales & Growth</h3>
+            <p data-i18n="skill_sales_text">International sales, market expansion, business development e strategic account management.</p>
+          </article>
+          <article class="skill-panel reveal">
+            <h3 data-i18n="skill_ops_title">Hospitality & Operations</h3>
+            <p data-i18n="skill_ops_text">Procurement, vendor relations, event management, team leadership e customer experience.</p>
+          </article>
+          <article class="skill-panel reveal">
+            <h3 data-i18n="skill_tools_title">Strumenti & Lingue</h3>
+            <p data-i18n="skill_tools_text">CRM tools, Microsoft Office, Google Workspace. Italiano madrelingua, inglese B2, francese base.</p>
           </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- COMPETENZE -->
-    <section class="section" id="competenze">
-      <div class="container">
-        <div class="section__head">
-          <h2>Competenze</h2>
-          <p class="section__sub">Dove porto valore (e come lavoro).</p>
-        </div>
-
-        <div class="grid2">
-          <div class="card">
-            <h3>Sales &amp; Growth</h3>
-            <ul class="bullets">
-              <li>International sales &amp; market expansion</li>
-              <li>Business development &amp; negoziazione</li>
-              <li>Client relationship management</li>
-              <li>Strategic account management</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Hospitality &amp; Operations</h3>
-            <ul class="bullets">
-              <li>Hospitality / restauration consulting</li>
-              <li>Procurement &amp; vendor relations</li>
-              <li>Event management &amp; trade shows</li>
-              <li>Team leadership cross-culturale</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Strumenti</h3>
-            <ul class="bullets">
-              <li>CRM tools</li>
-              <li>Microsoft Office / Google Workspace</li>
-              <li>Vendor management systems</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Lingue</h3>
-            <ul class="bullets">
-              <li>Italiano: madrelingua</li>
-              <li>Inglese: B2 (professional working)</li>
-              <li>Francese: base</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTATTI -->
-    <section class="section section--alt" id="contatti">
-      <div class="container">
-        <h2>Contatti</h2>
-        <p class="section__sub">Se vuoi collaborare, invitarmi a un evento o parlare di un progetto, scrivimi.</p>
-
-        <div class="contact">
+      <section id="contact" class="contact-section reveal">
+        <div class="section-shell contact-grid">
           <div>
-            <div class="contact__cards">
-              <div class="mini">
-                <div class="mini__label">Email</div>
-                <a class="mini__value" href="mailto:mattia@mattiamartino.it">mattia@mattiamartino.it</a>
-              </div>
-              <div class="mini">
-                <div class="mini__label">Telefono IT</div>
-                <a class="mini__value" href="tel:+393462135436">+39 346 213 5436</a>
-              </div>
-              <div class="mini">
-                <div class="mini__label">Telefono USA</div>
-                <a class="mini__value" href="tel:+17079971703">+1 707 997 1703</a>
-              </div>
-              <div class="mini">
-                <div class="mini__label">Base</div>
-                <div class="mini__value">Cortemilia (IT) — San Francisco (USA)</div>
-              </div>
-            </div>
-
-            <div class="contact__actions">
-              <a class="btn btn--primary"
-                 href="mailto:mattia@mattiamartino.it?subject=Contatto%20dal%20sito%20mattiamartino.it&body=Ciao%20Mattia%2C%0A%0A">
-                Contatta (Email)
-              </a>
-              <button class="btn btn--ghost" id="copyEmail" type="button" data-email="mattia@mattiamartino.it">
-                Copia email
-              </button>
-            </div>
-
-            <div class="social" style="margin-top:16px">
-              <a href="https://www.linkedin.com/in/mattia-martino-194a9613b" target="_blank" rel="noopener">
-                <span class="dot" aria-hidden="true"></span> LinkedIn
-              </a>
-              <a href="https://www.instagram.com/mattiamartino_official/" target="_blank" rel="noopener">
-                <span class="dot" aria-hidden="true"></span> Instagram
-              </a>
-              <a href="https://www.instagram.com/americando.podcast/" target="_blank" rel="noopener">
-                <span class="dot" aria-hidden="true"></span> AMERICANDO IG
-              </a>
-            </div>
+            <p class="eyebrow" data-i18n="contact_eyebrow">Contatti</p>
+            <h2 data-i18n="contact_title">Parliamo del prossimo progetto.</h2>
+            <p data-i18n="contact_text">
+              Per collaborazioni, consulenze, eventi o partnership commerciali, scrivimi direttamente.
+            </p>
           </div>
 
-          <div class="card">
-            <h3>Link rapidi</h3>
-            <ul class="bullets">
-              <li><a href="images/CV_Mattia_Martino.pdf" target="_blank" rel="noopener">Scarica CV (PDF)</a></li>
-              <li><a href="#progetti">Vai ai progetti</a></li>
-              <li><a href="mailto:mattia@mattiamartino.it?subject=Contatto%20dal%20sito%20mattiamartino.it">Mandami una mail</a></li>
-            </ul>
+          <div class="contact-panel">
+            <a href="mailto:mattia@mattiamartino.it">mattia@mattiamartino.it</a>
+            <a href="tel:+393462135436">+39 346 213 5436</a>
+            <a href="tel:+17079971703">+1 707 997 1703</a>
+            <div class="social-row">
+              <a href="https://www.linkedin.com/in/mattia-martino-194a9613b" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a href="https://www.instagram.com/mattiamartino_official/" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="images/CV_Mattia_Martino.pdf" data-i18n="contact_cv">CV PDF</a>
+            </div>
           </div>
         </div>
+      </section>
+    </main>
 
-        <footer class="footer">
-          <p>© <span id="year"></span> Mattia Martino. Tutti i diritti riservati.</p>
-        </footer>
-      </div>
-    </section>
-  </main>
+    <footer class="site-footer">
+      <span>© <span id="year"></span> Mattia Martino</span>
+      <a href="#top" data-i18n="footer_top">Torna su</a>
+    </footer>
 
-  <script>
-    (function () {
-      const year = document.getElementById("year");
-      if (year) year.textContent = new Date().getFullYear();
-
-      const navToggle = document.getElementById("navToggle");
-      const navMenu = document.getElementById("navMenu");
-
-      if (navToggle && navMenu) {
-        navToggle.addEventListener("click", () => {
-          const open = navMenu.classList.toggle("is-open");
-          navToggle.setAttribute("aria-expanded", open ? "true" : "false");
-        });
-
-        navMenu.querySelectorAll("a").forEach((a) => {
-          a.addEventListener("click", () => {
-            navMenu.classList.remove("is-open");
-            navToggle.setAttribute("aria-expanded", "false");
-          });
-        });
-      }
-
-      const copyBtn = document.getElementById("copyEmail");
-      if (copyBtn) {
-        copyBtn.addEventListener("click", async () => {
-          const email = copyBtn.getAttribute("data-email");
-          try {
-            await navigator.clipboard.writeText(email);
-            const old = copyBtn.textContent;
-            copyBtn.textContent = "Copiato ✅";
-            setTimeout(() => (copyBtn.textContent = old), 1200);
-          } catch {
-            window.location.href = `mailto:${email}`;
-          }
-        });
-      }
-    })();
-  </script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
